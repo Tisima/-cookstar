@@ -11,6 +11,30 @@
   </head>
 
   <body>
+    <% if user_signed_in? %><%# ユーザーがログインしている時 %>
+    
+    　　<%= link_to recipes_path,class: 'text-light' do %>
+         <i class="fas fa-home"></i>
+         トップ
+         <% end %>
+         
+        <%= link_to  _path,class: 'text-light' do %>
+        <i class="fas fa-birthday-cake"></i>
+        商品一覧
+        
+        <%= link_to cart_items_path,class: 'text-light' do %>
+         <i class="fas fa-cart-plus"></i>
+         カート
+        <% end %>
+        
+        <%= link_to homes_about_path,class: 'text-light' do %>
+         <i class="fas fa-address-card"></i>
+         アバウト
+         <% end %>
+         
+        <%= button_to "ログアウト", user_session_path, method: :delete, class: 'text-light' %>
+         
+    <% end %>
     <%= yield %>
   </body>
 </html>
